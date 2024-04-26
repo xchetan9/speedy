@@ -198,12 +198,11 @@ var autoInputInterval;
     }
 
     function startAutoInput() {
-        var speed = document.getElementById("speed").innerHTML
-        console.log(speed)
         autoInputActive = true;
         var slug = generateRandomSlug(10)
         console.log(slug)
         autoInputInterval = setInterval(function() {
+            var speed = document.getElementById("speed").innerHTML
             var input = speed
             var inputData = {
                 s: input,

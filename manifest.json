@@ -17,18 +17,32 @@
   ],
   "screenshots" : [
   {
-    "src": "screenshot1.webp",
+    "src": "1.jpg",
     "sizes": "1280x720",
-    "type": "image/webp",
+    "type": "image/jpg",
     "form_factor": "wide",
-    "label": "Homescreen of Awesome App"
+    "label": "Screenshot 1"
   },
   {
-    "src": "screenshot2.webp",
+    "src": "2.jpg",
     "sizes": "1280x720",
-    "type": "image/webp",
+    "type": "image/jpg",
     "form_factor": "wide",
-    "label": "List of Awesome Resources available in Awesome App"
+    "label": "Screenshot 2"
+  },
+  {
+    "src": "3.jpg",
+    "sizes": "1280x720",
+    "type": "image/jpg",
+    "form_factor": "wide",
+    "label": "Screenshot 3"
+  },
+  {
+    "src": "4.jpg",
+    "sizes": "1280x720",
+    "type": "image/jpg",
+    "form_factor": "wide",
+    "label": "Screenshot 4"
   }
 ]
   "orientation": "portrait",

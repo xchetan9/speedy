@@ -15,6 +15,22 @@
       "type": "image/png"
     }
   ],
+  "screenshots" : [
+  {
+    "src": "screenshot1.webp",
+    "sizes": "1280x720",
+    "type": "image/webp",
+    "form_factor": "wide",
+    "label": "Homescreen of Awesome App"
+  },
+  {
+    "src": "screenshot2.webp",
+    "sizes": "1280x720",
+    "type": "image/webp",
+    "form_factor": "wide",
+    "label": "List of Awesome Resources available in Awesome App"
+  }
+]
   "orientation": "portrait",
   "display": "standalone",
   "dir": "auto",

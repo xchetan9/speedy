@@ -45,7 +45,6 @@
     "label": "Screenshot 4"
   }
 ],
-  "orientation": "portrait",
   "display": "standalone",
   "dir": "auto",
   "lang": "en-US",
@@ -53,6 +52,6 @@
   "short_name": "IR Speed",
   "start_url": "/",
   "scope": "/",
-  "description": "Introducing IR Speed, your ultimate companion for tracking speed with precision and ease. Designed to harness the power of geolocation technology, this intuitive web application transforms your device into a sophisticated speedometer, providing real-time speed data wherever you go.  With its seamless integration of GPS functionality, IR Speed accurately measures your speed, keeping you informed about your velocity with pinpoint accuracy. Whether you're cruising down the highway, jogging through the park, or cycling along scenic routes, this versatile tool ensures you stay on top of your speed metrics effortlessly.  But IR Speed is more than just a speedometer. It's a comprehensive solution for speed tracking and management. By leveraging local storage capabilities, this app securely stores your speed data directly on your device, ensuring privacy and convenience. Say goodbye to cumbersome external servers or complicated setups – IR Speed keeps your data close at hand, ready for whenever you need it.  Key features of IR Speed include:  Real-time Speed Tracking: Instantly monitor your speed with live updates, thanks to advanced geolocation technology. Accuracy and Precision: Trust in the reliability of your speed measurements, with high-quality data derived from GPS positioning. Local Data Storage: Safeguard your speed records locally on your device, ensuring privacy and accessibility at all times. User-Friendly Interface: Navigate IR Speed effortlessly with its intuitive design, making speed tracking a breeze for users of all levels. Versatile Compatibility: Access IR Speed from any device with a web browser, whether it's your smartphone, tablet, or desktop computer. Whether you're a fitness enthusiast striving for personal bests, a driver mindful of speed limits, or an outdoor adventurer exploring new territories, IR Speed empowers you with the tools you need to stay informed and in control. Experience the next level of speed tracking with IR Speed today.",
+  "description": "IR Speed - Keep Records of your Speed , with Offline Capable Web App",
   "id": "irspeed"
 }

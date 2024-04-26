@@ -159,3 +159,136 @@
             new n(e)
         })
 }();
+
+
+
+function generateRandomSlug(length) {
+    const charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let slug = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      slug += charset[randomIndex];
+    }
+    return slug;
+  }
+  
+  function deleteRec(key) {
+// Remove the item associated with the specified key
+localStorage.removeItem(key);
+
+// Redirect to the specified URL
+window.location.href = "/";
+}   
+
+
+var autoInputInterval;
+    var autoInputActive = false;
+
+    function toggleAutoInput() {
+        if (autoInputActive) {
+            document.getElementById("startstop").innerHTML= "Record"
+            stopAutoInput();
+            olddata();
+            document.getElementById("inputList").innerHTML=""
+        } else {
+            document.getElementById("startstop").innerHTML= "Stop"
+
+            startAutoInput();
+        }
+    }
+
+    function startAutoInput() {
+        var speed = document.getElementById("speed").innerHTML
+        console.log(speed)
+        autoInputActive = true;
+        var slug = generateRandomSlug(10)
+        console.log(slug)
+        autoInputInterval = setInterval(function() {
+            var input = speed
+            var inputData = {
+                s: input,
+                t: new Date().toLocaleString()
+            };
+            var inputs = JSON.parse(localStorage.getItem(slug)) || [];
+            inputs.push(inputData);
+            localStorage.setItem(slug, JSON.stringify(inputs));
+            displayInputs(slug);
+        }, 1000);
+        }
+
+    function stopAutoInput() {
+        autoInputActive = false;
+        clearInterval(autoInputInterval);
+        document.querySelector("button").textContent = "Start Auto Input";
+    }
+
+    function displayInputs(slug) {
+        var inputs = JSON.parse(localStorage.getItem(slug)) || [];
+        var inputList = document.getElementById("inputList");
+        inputList.innerHTML = "";
+        inputs.forEach(function(item) {
+            var li = document.createElement("li");
+            li.classList.add("inputItem");
+            li.textContent = item.s + " - " + item.t;
+            inputList.appendChild(li);
+        });
+    }
+    function olddata() {
+    if (typeof(Storage) !== "undefined") {
+        var keys = Object.keys(localStorage);
+        var sortedKeys = [];
+        keys.forEach(function(key) {
+            if (key !== "measure") {
+                var value = localStorage.getItem(key);
+                if (value) {
+                    value = JSON.parse(value);
+                    sortedKeys.push({ key: key, date: new Date(value[0].t) });
+                }
+            }
+        });
+
+        sortedKeys.sort(function(a, b) {
+            return a.date - b.date;
+        });
+        console.log(sortedKeys)
+        var olddatalist = document.getElementById("olddatalist");
+        olddatalist.innerHTML = ``;
+        sortedKeys.forEach(function(item) {
+            var li = document.createElement("li");
+            li.classList.add("inputItem");
+            li.textContent =item.date.toLocaleString();
+            li.innerHTML =`<span onclick="loadrecord('${item.key}')">${item.date.toLocaleString()}</span>`
+            olddatalist.appendChild(li);
+        });
+    } else {
+        console.log("Use Latest Version of Browsers");
+    }
+}
+
+
+function loadrecord(slug){
+    var inputs = JSON.parse(localStorage.getItem(slug)) || [];
+        var maindiv = document.createElement("div")
+        maindiv.setAttribute("class","od_div2")
+        var inputList = document.createElement("ul")
+        var h33 = document.createElement("h3")
+        var empty = document.createElement("div")
+        empty.setAttribute("id","emp")
+        h33.innerHTML = `Record Details`
+        maindiv.append(h33)
+        inputList.innerHTML = "";
+        inputs.forEach(function(item) {
+            var li = document.createElement("li");
+            li.textContent = item.s + " - " + item.t;
+            inputList.appendChild(li);
+        });
+        maindiv.append(inputList)
+        document.getElementById("main").innerHTML = ``
+                document.getElementById("main").append(maindiv)
+                document.getElementById("main").append(empty)
+                document.getElementById("emp").innerHTML = `<a href="/" class="button extrall">Back</a><button class="button extrall" onclick="deleteRec('${slug}')" style="color:red;">Delete Record</button>`
+            
+}
+
+    displayInputs();
+    olddata();

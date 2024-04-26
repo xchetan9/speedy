@@ -2,6 +2,8 @@ var CACHE_NAME = 'zpssseed';
 var FilesToCache = [
   '/',
   '/index.html',
+  '/?k=',
+  '/?k=*',
   '/style.css',
   '/script.js'
 ];
